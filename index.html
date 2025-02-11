@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alisson Artur Silva</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <header>
+        <div class="cabecalho">
+            <h1>Alisson Artur Silva</h1>
+            <h1>Técnico em informática e formando em Engenharia de Software</h1>
+            <nav>
+                <ul>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#experiencia">Experiência</a></li>
+                    <li><a href="#projetos">Projetos</a></li>
+                    <li><a href="#habilidades">Habilidades</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="sobre">
+        <div class="container">
+            <div class="sobre-conteudo">
+                <div class="texto-sobre">
+                    <h2>Sobre Mim</h2>
+                    <p> Profissional de suporte técnico com sólida experiência em resolução de problemas e suporte a usuários,
+                        buscando transição para a área de desenvolvimento de software. Motivado a aplicar habilidades
+                        analíticas e técnicas para criar soluções de software eficazes e inovadoras, sempre em busca de
+                        aprimorar e adquirir conhecimento. Tenho experiência com diversas tecnologias e gosto de trabalhar em projetos desafiadores.</p>
+                </div>
+                <img src="eu2.jpg" alt="Minha Foto" class="foto-perfil">
+            </div>
+        </div>
+    </section>
+
+    <section id="experiencia">
+        <div class="container">
+            <h2>Experiência</h2>
+            <div class="carrossel">
+                <div class="carrossel-items">
+                    <div class="carrossel-item">
+                        <h3>Desenvolvedor Front-End</h3>
+                        <p>Desenvolvimento de interfaces modernas e responsivas com HTML5, CSS, React e JavaScript. Embora minha experiência no front-end seja limitada, estou constantemente aprendendo sobre frameworks como React e Vue.js e colaborando com a equipe para integrar sistemas back-end com interfaces de usuário de forma eficaz. Tenho grande interesse em expandir meus conhecimentos nessa área para me tornar um desenvolvedor full-stack.</p>
+                    </div>
+                    <div class="carrossel-item">
+                        <h3>Desenvolvedor Back-End</h3>
+                        <p>Desenvolvedor Back-End com sólida experiência em desenvolvimento de APIs, integração de sistemas e otimização de bancos de dados. Trabalhei em diversos projetos pessoais e contribuições de código aberto, utilizando tecnologias como Python, Node.js, PHP, Java, C# entre outros. Apaixonado por resolver problemas complexos e sempre buscando aprender novas tecnologias e boas práticas de desenvolvimento.</p>
+                    </div>
+                    <div class="carrossel-item">
+                        <h3>Analista de Suporte</h3>
+                        <p>Resolvi problemas técnicos complexos e forneci suporte a usuários finais para uma variedade de sistemas e aplicativos. Trabalhei com equipes de desenvolvimento para diagnosticar e relatar bugs, contribuindo para melhorias contínuas do software. Desenvolvi scripts e ferramentas em Python para automatizar tarefas repetitivas e melhorar a eficiência operacional. Criei e mantive documentação técnica, incluindo tutoriais e FAQs, para facilitar o entendimento dos usuários e reduzir a carga de suporte.</p>
+                    </div>
+                    <div class="carrossel-item">
+                        <h3>Técnico de Infraestrutura de TI</h3>
+                        <p>Administração e manutenção de ambientes Active Directory, incluindo a criação e gestão de contas de usuários, grupos, unidades organizacionais (OUs) e políticas de segurança (GPOs). Realização de tarefas de troubleshooting relacionadas a permissões de usuários e configuração de diretivas. Administração e configuração de roteadores MikroTik para otimização e controle de tráfego de rede, implementação de VPNs, balanceamento de carga e monitoramento de largura de banda. Configuração de Hotspot e firewall para proteção de rede.</p>
+                    </div>
+                </div>
+
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+            </div>
+        </div>
+    </section>
+    
+    <style>
+        .carrossel {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+    
+        .carrossel-items {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+    
+        .carrossel-item {
+            flex: 0 0 100%;  
+            box-sizing: border-box;
+        }
+    
+        .carrossel-item h3 {
+            margin-top: 0;
+        }
+    
+        .carrossel-item p {
+            margin-bottom: 1em;
+        }
+    
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 1em;
+            border: none;
+            padding: 0.5em;
+            cursor: pointer;
+            z-index: 1;
+        }
+    
+        .prev {
+            left: 0;
+        }
+    
+        .next {
+            right: 0;
+        }
+    
+
+        @media (max-width: 768px) {
+            .carrossel-item h3 {
+                font-size: 1.2em;
+            }
+    
+            .carrossel-item p {
+                font-size: 1em;
+            }
+        }
+    </style>
+    
+    <script>
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+        const itemsContainer = document.querySelector('.carrossel-items');
+        const items = document.querySelectorAll('.carrossel-item');
+        let currentIndex = 0;
+    
+
+        function updateCarousel() {
+            const offset = -currentIndex * 100;
+            itemsContainer.style.transform = `translateX(${offset}%)`;
+        }
+    
+
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % items.length;
+            updateCarousel();
+        });
+    
+
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + items.length) % items.length;
+            updateCarousel();
+        });
+    </script>
+    
+
+
+    <section id="projetos">
+        <div class="container">
+            <h2>Meus Projetos</h2>
+            <div class="projetos-lista">
+                <div class="projeto">
+                    <h3>Projeto 1</h3>
+                    <p>Uma aplicação para gerenciamento de tarefas usando React.</p>
+                </div>
+                <div class="projeto">
+                    <h3>Projeto 2</h3>
+                    <p>Um site responsivo para e-commerce com integração de pagamento.</p>
+                </div>
+                <div class="projeto">
+                    <h3>Projeto 3</h3>
+                    <p>Chat em tempo real desenvolvido com Node.js e WebSockets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="habilidades">
+        <div class="container">
+            <h2>Habilidades</h2>
+            <div class="habilidades-lista">
+                <div class="habilidade">
+                    <img src="HTML5.png" alt="HTML5" class="habilidade-icon">
+                    <p>HTML5</p>
+                </div>
+                <div class="habilidade">
+                    <img src="css3.png" alt="CSS3" class="habilidade-icon">
+                    <p>CSS3</p>
+                </div>
+                <div class="habilidade">
+                    <img src="js.png" alt="JavaScript" class="habilidade-icon">
+                    <p>JavaScript</p>
+                </div>
+                <div class="habilidade">
+                    <img src="java.svg" alt="Java" class="habilidade-icon">
+                    <p>Java</p>
+                </div>
+                <div class="habilidade">
+                    <img src="php.svg" alt="Php" class="habilidade-icon">
+                    <p>PHP</p>
+                </div>
+                <div class="habilidade">
+                    <img src="python.svg" alt="Python" class="habilidade-icon">
+                    <p>Python</p>
+                </div>
+                <div class="habilidade">
+                    <img src="c-sharp.svg" alt="C#" class="habilidade-icon">
+                    <p>C#</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato">
+        <div class="container">
+            <h2>Contato</h2>
+            <form id="form-contato">
+                <input type="text" id="nome" placeholder="Seu nome" required>
+                <input type="email" id="email" placeholder="Seu e-mail" required>
+                <textarea id="mensagem" placeholder="Sua mensagem" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Meu Portfólio. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
